@@ -1,0 +1,19 @@
+<%- include ('../../partials/header.ejs') %>
+
+<div class="container" style="margin-top: 2%;">
+    <div class="card" style="border: none;">
+        <div class="card-header bg-success text-white">
+            <h2 style="text-align: center; letter-spacing: 0.2em;">Edição de Categoria</h2>
+        </div>
+
+        <div class="card-body">
+            <form action="/categories/update" method="POST">
+                <input class="form-control" type="text" name="title" placeholder="Defina o título da categoria" value="<%= category.title %>">
+                <input type="hidden" name="id" value="<%= category.id %>">
+                <button class="btn-xs btn-success" style="margin-top: 2%;">Atualizar</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+<%- include ('../../partials/footer.ejs') %>

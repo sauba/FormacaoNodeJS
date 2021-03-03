@@ -1,0 +1,60 @@
+<%-include('../../partials/header')%>
+
+<script>
+    function confirmExclusion(event, form) {
+        /**
+         * @function preventDefault Cancela a ação padrão, neste caso a ação de submissão
+         */
+        event.preventDefault()
+        const decision = confirm('Você deseja realmente excluir este artigo ?');
+        if (decision) {
+            return form.submit();
+            console.log('User confirmed exclusion!');
+        } else {
+            return console.log('User aborted exclusion!');
+        }
+    }
+</script>
+
+<div class="container">
+    <hr>
+    <h2>Articles</h2>
+    <a class="btn btn-success" href="/admin/articles/new" style="font-weight: bold;">CREATE NEW ARTICLE</a>
+    <hr>
+    <!-- Creating tables with Bootstrap -->
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Category</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% articles.forEach(article => { %>
+                
+                <td><%= article.id %></td>
+                <td><%= article.title %></td>
+                <td><%= article.slug %></td>
+                <td><%= article.categoryId %></td>
+                <td>Ações</td>
+            
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%-include('../../partials/footer')%>
+
+<script>
+    function confirmExclusion(event, form){
+        event.preventDefault();
+        var decision = confirm("Você deseja realmente apagar esta categoria ?");
+        if(decision){
+            form.submit();
+        } else {
+            console.log("User aborted exclusion!");
+        }
+    }
+</script>
